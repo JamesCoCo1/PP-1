@@ -1,12 +1,14 @@
 #include <QApplication>
 #include <QWidget>
-#include "tcpserver.h"
+#include "mytcpserver.h"
+#include "mytcpclient.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QWidget *mainWin = new QWidget();
-    MyTcpServer *newServer = new MyTcpServer(2);
+    MyTcpServer *newServer = new MyTcpServer(2, 1234);
+    MyTcpClient *newClient = new MyTcpClient(1234);
 
     mainWin->resize(400, 400);
 

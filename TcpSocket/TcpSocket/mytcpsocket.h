@@ -15,16 +15,23 @@ class MyTcpSocket : public QTcpSocket
 {
     Q_OBJECT
 public:
-    explicit MyTcpSocket(QTcpSocket *parent = nullptr);
+    explicit MyTcpSocket(bool isOK, QSqlDatabase &db, QTcpSocket *parent = nullptr);
+    ~MyTcpSocket();
+
 
 private:
-    QSqlQueryModel *model;
+//    QSqlQueryModel *model;
+    QSqlQuery *query;
+    bool openOK = false;
+
 
 private slots:
     void slotReadData();
 
+    void responseReq(const QByteArray &name);
+
 signals:
-    void handled();
+    void handled(const QByteArray &name);
 
 };
 

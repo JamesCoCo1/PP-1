@@ -7,24 +7,30 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QThread>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSqlError>
 #include "mytcpsocket.h"
 
 class MyTcpServer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyTcpServer(int maxCon, QWidget *parent = nullptr);
+    explicit MyTcpServer(int maxCon, quint16 port, QWidget *parent = nullptr);
 
+    bool initDB();
+
+private:
+    QSqlDatabase db;
     QTcpServer *mTcpServer;
     QTcpSocket *mSocket;
-private:
 
+    bool openOK = false;
 private slots:
     void tcpNewConnection();
-    void tcpReadyRead();
-    void tcpDisconnect();
 
-    void writeToClient();
+    void tcpDisconnect();
 
 signals:
 

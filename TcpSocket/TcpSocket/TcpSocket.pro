@@ -3,12 +3,16 @@ QT       += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql
 
 SOURCES += \
+    deviceclient.cpp \
     main.cpp \
-    mytcpsocket.cpp \
-    tcpserver.cpp
+    mytcpclient.cpp \
+    mytcpserver.cpp \
+    mytcpsocket.cpp
 
 HEADERS += \
-    mytcpsocket.h \
-    tcpserver.h
+    deviceclient.h \
+    mytcpclient.h \
+    mytcpserver.h \
+    mytcpsocket.h
 
 
