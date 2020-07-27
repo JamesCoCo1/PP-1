@@ -21,7 +21,7 @@ private:
 
 private slots:
     void tcpReadyRead();
-//    void on_pushButton_clicked();
+
     void reConnect();   // 重新连接 Server
 
     void sendData();
