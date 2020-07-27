@@ -2,7 +2,8 @@
 
 CloudMonitor::CloudMonitor(QWidget *parent): QWidget(parent)
 {
-    this->initSignalConnection();
+    // 得先初始化指针才能再构建信号和槽之间的连接
+//    this->initSignalConnection();
 }
 
 // 初始化那些成员变量

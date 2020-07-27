@@ -14,7 +14,7 @@ class DeviceClient : public MyTcpClient
     Q_OBJECT
 public:
     DeviceClient(quint16 port);
-    ~DeviceClient;()
+
 };
 
 #endif // DEVICECLIENT_H

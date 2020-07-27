@@ -7,6 +7,7 @@ SOURCES += \
     interfacedisplay.cpp \
     main.cpp \
     monitorclient.cpp \
+    mytcpclient.cpp \
     qserialrxecg.cpp \
     qserialrxibp2.cpp \
     qserialrxspo2.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     cloudmonitor.h \
     interfacedisplay.h \
     monitorclient.h \
+    mytcpclient.h \
     qserialrxecg.h \
     qserialrxibp2.h \
     qserialrxspo2.h \
