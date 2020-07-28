@@ -11,6 +11,7 @@
 #include <QtSql/QSqlQuery>
 #include <QSqlQueryModel>
 #include <QSqlError>
+#include <QDateTime>
 #include "mytcpsocket.h"
 
 class MyTcpServer : public QWidget
@@ -21,13 +22,13 @@ public:
 
     bool initDB();
 
-private:
+//private:
     QSqlDatabase db;
     QTcpServer *mTcpServer;
     QTcpSocket *mSocket;
 
     bool openOK = false;
-private slots:
+//private slots:
     void tcpNewConnection();
 
     void tcpDisconnect();

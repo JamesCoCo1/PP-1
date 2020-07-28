@@ -4,6 +4,7 @@ MyTcpServer::MyTcpServer(int maxCon, quint16 port, QWidget *parent) : QWidget(pa
 {
     // 初始化数据库
     this->initDB();
+
     this->mTcpServer = new QTcpServer(this);
     this->mTcpServer->setMaxPendingConnections(maxCon); // 最大连接数
     connect(this->mTcpServer, &QTcpServer::newConnection, this, &MyTcpServer::tcpNewConnection);
@@ -23,6 +24,7 @@ bool MyTcpServer::initDB()
     this->db.setUserName("doctor3");
     this->db.setPassword("1234567");
     this->openOK = db.open();
+    qDebug()<<"Server 连接数据库成功";
     return this->openOK;
 }
 

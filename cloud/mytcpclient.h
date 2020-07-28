@@ -14,8 +14,8 @@ public:
     explicit MyTcpClient(quint16 port, QWidget *parent = nullptr);
     ~MyTcpClient();
 
-private:
     QTcpSocket *mySocket;
+private:
     QTimer *reConnectTimer;
 //    QTimer *sendTimer;
 
