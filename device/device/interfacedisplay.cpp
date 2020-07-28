@@ -21,16 +21,17 @@ InterfaceDisplay::InterfaceDisplay(int maxE, int maxS, int maxI, QWidget *parent
 
 void InterfaceDisplay::initMainLayout()
 {
-    this->initDrawerLayout();
-    this->initRightSideWidgetLayout();
+    // 初始化子 layout
+    this->initUpsideLayout();
+    this->initDownsideLayout();
 
     // 初始化主 layout
-    this->mainLayout = new QHBoxLayout();
-    this->mainLayout->addLayout(this->drawerLayout);
-    this->mainLayout->addLayout(this->rightSideWidgetLayout);
+    this->mainLayout = new QVBoxLayout();
+    this->mainLayout->addLayout(this->upsideLayout);
+    this->mainLayout->addLayout(this->downsideLayout);
     // 配置拉伸因子
-    this->mainLayout->setStretchFactor(this->drawerLayout, 2);
-    this->mainLayout->setStretchFactor(this->rightSideWidgetLayout, 1);
+    this->mainLayout->setStretchFactor(this->upsideLayout, 1);
+    this->mainLayout->setStretchFactor(this->downsideLayout, 10);
 }
 
 // 初始化画图部分的 layout
@@ -73,4 +74,31 @@ void InterfaceDisplay::initRightSideWidgetLayout()
     this->rightSideWidgetLayout->addWidget(btnUp);
     this->rightSideWidgetLayout->addWidget(btnDowm);
 
+}
+
+void InterfaceDisplay::initUpsideLayout()
+{
+    this->upsideLayout = new QHBoxLayout();
+
+    this->testBtn = new QPushButton("test");
+    this->testBtn->setSizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+
+    this->upsideLayout->addWidget(this->testBtn);
+
+}
+
+void InterfaceDisplay::initDownsideLayout()
+{
+    // 用之前进行初始化
+    this->initDrawerLayout();
+    this->initRightSideWidgetLayout();
+
+    // downside layout
+    this->downsideLayout = new QHBoxLayout();
+
+    this->downsideLayout->addLayout(this->drawerLayout);
+    this->downsideLayout->addLayout(this->rightSideWidgetLayout);
+    // 配置拉伸因子
+    this->downsideLayout->setStretchFactor(this->drawerLayout, 2);
+    this->downsideLayout->setStretchFactor(this->rightSideWidgetLayout, 1);
 }
