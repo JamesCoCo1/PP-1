@@ -5,7 +5,3 @@ DeviceClient::DeviceClient(quint16 port): MyTcpClient(port)
 
 }
 
-DeviceClient::~DeviceClient()
-{
-
-}

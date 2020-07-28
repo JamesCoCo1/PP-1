@@ -3,9 +3,6 @@
 
 #include <QWidget>
 #include "qwidgetserialrx.h"
-#include "qserialrxecg.h"
-#include "qserialrxspo2.h"
-#include "qserialrxibp2.h"
 #include "interfacedisplay.h"
 #include "monitorclient.h"
 
@@ -19,6 +16,13 @@ public:
     // 这里的入口参数需要自己设置下
     // 初始化这个类中的所有对象
     void initMonitor();
+    void initSerials(const QString &ecgPort, const QString &ibp2Port, const QString &spo2Port);             // 初始化串口
+    void initClient(qint16 port);   // 初始化 TCP 客户端
+    // 初始化 界面展示部分
+    void initDisplayer(int maxEcg, int maxIBP2, int maxSPO2);
+    void initSignalConnection();
+
+    void showInterface();
 
 private:
     // 串口接收
@@ -31,12 +35,12 @@ private:
     InterfaceDisplay *displayer;
 
     // 数据发送 通过 TcpSocket
-    MonitorClient *mSocket;
+    MonitorClient *mClient;
 
     // 设备 ID 上传信息时会使用到
     QString dev_id;
 
-    void initSignalConnection();
+
 
 private slots:
 
