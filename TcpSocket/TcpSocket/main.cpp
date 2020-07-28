@@ -1,4 +1,4 @@
-#include <QApplication>
+    #include <QApplication>
 #include <QWidget>
 #include "mytcpserver.h"
 #include "mytcpclient.h"

@@ -14,7 +14,9 @@ public:
     explicit MonitorClient(quint16 port, QWidget *parent = nullptr);
 
     // 槽
-    void txDataPre();
+    void txDataPre(char pID, int data);
+    void tcpConnected();
+    void tcpRead();
 signals:
 
 };

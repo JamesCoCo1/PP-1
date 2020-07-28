@@ -10,11 +10,14 @@ MyTcpClient::MyTcpClient(quint16 port, QWidget *parent) : QWidget(parent)
     this->reConnectTimer->start(500);       // 2000ms连接一次
 
     connect(this->reConnectTimer, &QTimer::timeout, this, &MyTcpClient::reConnect);
-    connect(this->mySocket, &QTcpSocket::readyRead, this, &MyTcpClient::tcpReadyRead);
+    // 这个连接也需要交给子类处理
+    // 这个信号吧 需要交给子类处理
+//    connect(this->mySocket, &QTcpSocket::readyRead, this, &MyTcpClient::tcpReadyRead);
     connect(this->mySocket, &QTcpSocket::connected, this->reConnectTimer, &QTimer::stop);
 
     // 处理 Server 先断开连接 尝试重新连接
     connect(this->mySocket, &QTcpSocket::disconnected, this, &MyTcpClient::initTimer);
+    // 连接之后的动作交给子类来完成
 //    connect(this->mySocket, &QTcpSocket::connected, this, &MyTcpClient::tcpConnect);
 
 }
