@@ -31,6 +31,9 @@ public:
     void initDrawerLayout();
     // 其他控件的 layout 设置
     void initRightSideWidgetLayout();
+    // 初始化上下 layuout
+    void initUpsideLayout();
+    void initDownsideLayout();
 
 
     // 接收绘图部分来的信号进行绘图
@@ -45,11 +48,14 @@ public:
     int maxIBP2;
 
     // mainLayout
-    QHBoxLayout *mainLayout;
+    QVBoxLayout *mainLayout;
     // 波形部分的 layout 布局
     QVBoxLayout *drawerLayout;
     // 其他控件的 layout 布局 (这里只考虑了波形和其他控件左右布局)
     QVBoxLayout *rightSideWidgetLayout;
+    // 再加几个子layout 子子layout
+    QHBoxLayout *upsideLayout;
+    QHBoxLayout *downsideLayout;
 
 /*
  * 这里需要添加其他一些控件 才能实现最终的目标
@@ -61,6 +67,9 @@ public:
     QLabel *widgetNibp;
     QPushButton *btnUp;
     QPushButton *btnDowm;
+
+    // test upsidelayout
+    QPushButton *testBtn;
 
 signals:
 
